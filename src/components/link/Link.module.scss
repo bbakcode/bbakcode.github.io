@@ -1,0 +1,29 @@
+.root {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: var(--font-color-link);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.active {
+  color: #000000;
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #364554;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.root:hover::before {
+  opacity: 0.04;
+}
+
+.root:active::before {
+  opacity: 0.16;
+}

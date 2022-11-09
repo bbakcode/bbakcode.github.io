@@ -1,0 +1,30 @@
+.root {
+  position: relative;
+  border: 0px;
+  background-color: unset;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #364554;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.root:hover::before {
+  opacity: 0.04;
+}
+
+.root:active::before {
+  opacity: 0.16;
+}
