@@ -14,7 +14,8 @@ const Header: React.FC<HeaderProps> = (props) => {
   const { menu, className } = props;
   const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
 
-  const onClickMenu = () => {
+  const onClickMenu = (e: React.MouseEvent) => {
+    e.stopPropagation();
     setIsOpenMenu((prev) => !prev);
   };
 
@@ -34,7 +35,11 @@ const Header: React.FC<HeaderProps> = (props) => {
           <MdOutlineMenu />
         </Button>
       </div>
-      {isOpenMenu && <ul className={styles.menu}>{menuItemList}</ul>}
+      {isOpenMenu && (
+        <div className={styles.menu_wrapper}>
+          <ul className={styles.menu}>{menuItemList}</ul>
+        </div>
+      )}
     </header>
   );
 };
