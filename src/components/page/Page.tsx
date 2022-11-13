@@ -4,7 +4,9 @@ import Navigation from "./Navigtaion";
 import * as styles from "./Page.module.scss";
 //import classNames from "classnames/bind";
 
-interface PageProps extends Omit<React.HTMLAttributes<HTMLDivElement>, ""> {}
+interface PageProps extends Omit<React.HTMLAttributes<HTMLDivElement>, ""> {
+  nav?: NavItem[];
+}
 
 const menu = [
   {
@@ -27,12 +29,12 @@ const menu = [
 
 //let cx = classNames.bind(styles);
 const Page: React.FC<PageProps> = (props) => {
-  const { children } = props;
+  const { nav, children } = props;
 
   return (
     <>
-      <Header className={styles.header} menu={menu} />
-      <Navigation className={styles.navigation} />
+      <Header menu={menu} />
+      <Navigation nav={nav} />
       <main className={styles.main}>{children}</main>
     </>
   );
