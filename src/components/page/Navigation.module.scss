@@ -4,7 +4,6 @@
 }
 
 .container {
-  display: flex;
   align-items: center;
   white-space: nowrap;
   overflow: auto;
@@ -18,9 +17,12 @@
 }
 
 .link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   margin-right: 4px;
   font-size: 14px;
   font-weight: 500;
-  padding: 4px 8px;
+  white-space: pre;
+  height: 32px;
+  padding: 0 8px;
 }

@@ -3,7 +3,7 @@ import type { HeadFC } from "gatsby";
 import { Page } from "@components/page";
 
 const HomePage = () => {
-  return <Page nav={[{ name: "🏠 홈", path: "/" }]}>테스트</Page>;
+  return <Page nav={[{ name: "🏠  홈", path: "/" }]}>테스트</Page>;
 };
 
 export default HomePage;

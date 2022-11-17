@@ -19,7 +19,7 @@ const TagPage: React.FC<TagPageProps> = (props) => {
   return (
     <Page
       nav={[
-        { name: "🏷 태그", path: `/tag` },
+        { name: "🏷  태그", path: `/tag` },
         { name: pageContext.name, path: `/tag/${pageContext.name}/` },
       ]}
     >

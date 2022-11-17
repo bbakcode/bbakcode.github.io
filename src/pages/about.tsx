@@ -10,7 +10,7 @@ interface AboutPageProps extends Omit<PageProps, "data"> {
 //let cx = classNames.bind(styles);
 const AboutPage: React.FC<AboutPageProps> = (props) => {
   const { data } = props;
-  return <Page nav={[{ name: "🧑‍💻 빡코드", path: "/about" }]}></Page>;
+  return <Page nav={[{ name: "🧑‍💻  빡코드", path: "/about" }]}></Page>;
 };
 
 export default AboutPage;
