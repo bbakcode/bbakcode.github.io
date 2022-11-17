@@ -16,7 +16,7 @@ const Navigation: React.FC<NavigationProps> = (props) => {
       <div className={styles.container}>
         {nav?.map(({ name, path }) => (
           <Link key={path} className={styles.link} to={path}>
-            {name}
+            {name.replace("_", " ")}
           </Link>
         ))}
       </div>

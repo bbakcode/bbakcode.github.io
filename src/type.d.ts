@@ -6,6 +6,18 @@ interface PageQuery {
 
 interface AllMdx {
   posts: PostItem[];
+  categories: CategoryItem[];
+  tags: TagItem[];
+}
+
+interface CategoryItem {
+  name: string;
+  count?: string;
+}
+
+interface TagItem {
+  name: string;
+  count?: string;
 }
 
 interface PostItem {
@@ -27,10 +39,10 @@ interface Fields {
 interface Frontmatter {
   title: string;
   tags: null;
-  assets: Array<Asset | null>;
+  assets: AssetItem[] | null;
 }
 
-interface Asset {
+interface AssetItem {
   childImageSharp: ChildImageSharp;
 }
 interface TableOfContents {
@@ -40,10 +52,8 @@ interface TableOfContents {
 interface TableOfContentsItem {
   url: string;
   title: string;
-  items: ItemItem[];
-}
-
-interface ItemItem {
-  url: string;
-  title: string;
+  items: {
+    url: string;
+    title: string;
+  }[];
 }

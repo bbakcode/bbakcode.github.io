@@ -10,8 +10,8 @@ interface PostPageProps extends Omit<PageProps, "data"> {
 //let cx = classNames.bind(styles);
 const PostPage: React.FC<PostPageProps> = (props) => {
   const { data } = props;
-  console.log(data.post.fields);
   const nav = data.post.fields.nav;
+
   return <Page nav={nav}></Page>;
 };
 

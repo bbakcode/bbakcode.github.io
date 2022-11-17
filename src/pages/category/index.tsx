@@ -1,16 +1,40 @@
+import { Link } from "@components/link";
 import { Page } from "@components/page";
-import { PageProps } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import React from "react";
 
-interface CateogryPageProps extends Omit<PageProps, "data"> {
+interface CategoryPageProps extends Omit<PageProps, "data"> {
   data: {
-    post: PostItem;
+    allMdx: {
+      categories: CategoryItem[];
+    };
   };
 }
 //let cx = classNames.bind(styles);
-const CateogryPage: React.FC<CateogryPageProps> = (props) => {
+const CategoryPage: React.FC<CategoryPageProps> = (props) => {
   const { data } = props;
-  return <Page nav={[{ name: "🗂  카테고리", path: "/category" }]}></Page>;
+  return (
+    <Page nav={[{ name: "🗂  카테고리", path: "/category" }]}>
+      {data?.allMdx?.categories?.map((category) => (
+        <div key={category.name}>
+          <Link to={`/category/${category.name}/`}>
+            {category.name} {category.count}
+          </Link>
+        </div>
+      ))}
+    </Page>
+  );
 };
 
-export default CateogryPage;
+export const categoryPageQuery = graphql`
+  query CategoryPage {
+    allMdx {
+      categories: group(field: fields___category) {
+        name: fieldValue
+        count: totalCount
+      }
+    }
+  }
+`;
+
+export default CategoryPage;

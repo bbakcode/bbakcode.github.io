@@ -22,6 +22,8 @@ exports.createPages = async ({ graphql, actions }: CreatePagesArgs) => {
   const { createPage } = actions;
 
   const PostComponent = path.resolve("./src/pages/post.tsx");
+  const TagComponent = path.resolve("./src/pages/tag/[name].tsx");
+  const CategoryComponent = path.resolve("./src/pages/category/[name].tsx");
 
   const query = await graphql<PageQuery>(
     `
@@ -33,6 +35,12 @@ exports.createPages = async ({ graphql, actions }: CreatePagesArgs) => {
               slug
             }
           }
+          categories: group(field: fields___category) {
+            name: fieldValue
+          }
+          tags: group(field: frontmatter___tags) {
+            name: fieldValue
+          }
         }
       }
     `
@@ -43,12 +51,35 @@ exports.createPages = async ({ graphql, actions }: CreatePagesArgs) => {
   }
 
   const posts = query.data?.allMdx.posts;
+  const tags = query.data?.allMdx.tags;
+  const categories = query.data?.allMdx.categories;
+
   posts?.forEach((post) => {
     createPage({
       path: post.fields.slug,
       component: PostComponent,
       context: {
         postId: post.id,
+      },
+    });
+  });
+
+  categories?.forEach((category) => {
+    createPage({
+      path: `/category/${category.name}/`,
+      component: CategoryComponent,
+      context: {
+        name: category.name,
+      },
+    });
+  });
+
+  tags?.forEach((tag) => {
+    createPage({
+      path: `/tag/${tag.name}/`,
+      component: TagComponent,
+      context: {
+        name: tag.name,
       },
     });
   });
@@ -59,23 +90,30 @@ exports.onCreateNode = ({ node, actions, getNode }: CreateNodeArgs) => {
 
   if (node.internal.type === `Mdx`) {
     const filePath = createFilePath({ node, getNode });
+    const [category, post_name] = filePath.split("/").filter((val) => val);
+    console.log(category, post_name);
     const frontmatter: any = node.frontmatter;
+    createNodeField({
+      name: `category`,
+      node,
+      value: category,
+    });
     createNodeField({
       name: `slug`,
       node,
-      value: `/post${filePath}`,
+      value: `/post/${post_name}/`,
     });
     createNodeField({
       name: `nav`,
       node,
       value: [
-        { path: "/category", name: "카테고리" },
+        { path: "/category", name: "🗂 카테고리" },
         {
-          path: `/category/${frontmatter.category}/`,
-          name: frontmatter.category,
+          path: `/category/${category}/`,
+          name: category,
         },
         {
-          path: `/post${filePath}`,
+          path: `/post/${post_name}/`,
           name: frontmatter.title,
         },
       ],
@@ -100,6 +138,7 @@ exports.createSchemaCustomization = ({
     }
 
     type Fields {
+      category: String
       slug: String
       nav: [Nav]
     }
