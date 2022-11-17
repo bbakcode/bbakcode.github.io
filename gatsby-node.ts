@@ -107,7 +107,7 @@ exports.onCreateNode = ({ node, actions, getNode }: CreateNodeArgs) => {
       name: `nav`,
       node,
       value: [
-        { path: "/category", name: "🗂 카테고리" },
+        { path: "/category", name: "🗂  카테고리" },
         {
           path: `/category/${category}/`,
           name: category,

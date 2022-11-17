@@ -4,12 +4,14 @@
 }
 
 .container {
+  display: flex;
   align-items: center;
   white-space: nowrap;
   overflow: auto;
   margin: 0 auto;
   max-width: 1200px;
-  padding: 8px 12px;
+  padding: 0px 12px;
+  height: 42px;
 }
 
 .container::-webkit-scrollbar {
@@ -21,8 +23,9 @@
   align-items: center;
   margin-right: 4px;
   font-size: 14px;
+  line-height: 1;
+  height: 26px;
   font-weight: 500;
+  padding: 4px 8px;
   white-space: pre;
-  height: 32px;
-  padding: 0 8px;
 }

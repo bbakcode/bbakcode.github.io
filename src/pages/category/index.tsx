@@ -1,7 +1,7 @@
-import { Link } from "@components/link";
 import { Page } from "@components/page";
 import { graphql, PageProps } from "gatsby";
 import React from "react";
+import { CategoryList } from "@components/list";
 
 interface CategoryPageProps extends Omit<PageProps, "data"> {
   data: {
@@ -15,13 +15,7 @@ const CategoryPage: React.FC<CategoryPageProps> = (props) => {
   const { data } = props;
   return (
     <Page nav={[{ name: "🗂  카테고리", path: "/category" }]}>
-      {data?.allMdx?.categories?.map((category) => (
-        <div key={category.name}>
-          <Link to={`/category/${category.name}/`}>
-            {category.name} {category.count}
-          </Link>
-        </div>
-      ))}
+      <CategoryList categories={data.allMdx.categories} />
     </Page>
   );
 };
