@@ -16,9 +16,9 @@ const TagList: React.FC<TagListProps> = (props) => {
       <div className={styles.header}>🏷 태그</div>
       <ul className={styles.list}>
         {tags?.map((tag) => (
-          <li key={tag.name} className={styles.list_item}>
+          <li key={tag.name}>
             <Link to={`/tag/${tag.name}/`} className={styles.tag}>
-              <span className={styles.name}>{tag.name}</span>
+              <span>{tag.name}</span>
               <span className={styles.count}>{tag.count}</span>
             </Link>
           </li>

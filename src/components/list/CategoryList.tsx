@@ -17,12 +17,12 @@ const CategoryList: React.FC<CategoryListProps> = (props) => {
       <div className={styles.header}>🗂 카테고리</div>
       <ul className={styles.list}>
         {categories?.map((category) => (
-          <li key={category.name} className={styles.list_item}>
+          <li key={category.name}>
             <Link
               to={`/category/${category.name}/`}
               className={styles.category}
             >
-              <span className={styles.name}>{category.name}</span>
+              <span>{category.name}</span>
               <span className={styles.count}>{category.count}</span>
             </Link>
           </li>

@@ -18,7 +18,7 @@ const PostPage: React.FC<PostPageProps> = (props) => {
 export default PostPage;
 
 export const postPageQuery = graphql`
-  query PostPage($postId: String!) {
+  query PostPage($postId: String) {
     post: mdx(id: { eq: $postId }) {
       id
       tableOfContents(maxDepth: 2)
