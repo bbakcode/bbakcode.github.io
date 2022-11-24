@@ -1,4 +1,4 @@
-import Image from "@components/image";
+import { Image } from "@components/image";
 import { Link } from "@components/link";
 import React from "react";
 import * as styles from "./PostList.module.scss";
