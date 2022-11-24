@@ -1,3 +1,4 @@
+import { PostList } from "@components/list";
 import { Page } from "@components/page";
 import { graphql, Link, PageProps } from "gatsby";
 import React from "react";
@@ -23,11 +24,7 @@ const CateogryPage: React.FC<CateogryPageProps> = (props) => {
         { name: pageContext.name, path: `/category/${pageContext.name}/` },
       ]}
     >
-      {data.allMdx?.posts?.map((post) => (
-        <div key={post.id}>
-          <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
-        </div>
-      ))}
+      <PostList posts={data.allMdx?.posts} />
     </Page>
   );
 };
@@ -45,7 +42,7 @@ export const categoryPageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           assets {
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(aspectRatio: 1.5) #3/2
             }
           }
         }
