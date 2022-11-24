@@ -20,7 +20,7 @@ const PostList: React.FC<PostListProps> = (props) => {
             <div className={styles.image_wrapper}>
               {post.frontmatter.assets && (
                 <Image
-                  className={styles.thumbnail}
+                  style={{ position: "absolute", top: 0, left: 0 }}
                   image={post.frontmatter.assets[0].childImageSharp}
                 />
               )}
