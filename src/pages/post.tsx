@@ -1,4 +1,5 @@
 import { Page } from "@components/page";
+import Post from "@components/post";
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 
@@ -12,7 +13,11 @@ const PostPage: React.FC<PostPageProps> = (props) => {
   const { data } = props;
   const nav = data.post.fields.nav;
 
-  return <Page nav={nav}></Page>;
+  return (
+    <Page nav={nav}>
+      <Post {...data.post} />
+    </Page>
+  );
 };
 
 export default PostPage;
@@ -21,6 +26,7 @@ export const postPageQuery = graphql`
   query PostPage($postId: String) {
     post: mdx(id: { eq: $postId }) {
       id
+      body
       tableOfContents(maxDepth: 2)
       frontmatter {
         title

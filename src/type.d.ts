@@ -22,6 +22,7 @@ interface TagItem {
 
 interface PostItem {
   id: string;
+  body: string;
   excerpt: string;
   frontmatter: Frontmatter;
   tableOfContents: TableOfContents;
