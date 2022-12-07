@@ -1,0 +1,162 @@
+/* header */
+// .h1 {
+//   color: #37352f;
+//   margin-top: 2em;
+//   margin-bottom: 4px;
+//   font-size: 1.875em;
+//   line-height: 1.3;
+//   font-weight: 600;
+//   white-space: pre-wrap;
+//   word-break: break-word;
+// }
+
+.h1 {
+  color: #37352f;
+  margin-top: 1.4em;
+  margin-bottom: 1px;
+  font-size: 1.5em;
+  line-height: 1.3;
+  font-weight: 600;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: #37352f;
+  margin-top: 1em;
+  margin-bottom: 1px;
+  font-size: 1.25em;
+  line-height: 1.3;
+  font-weight: 600;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* code */
+.code {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  pre {
+    margin: 0px !important;
+  }
+}
+
+.language {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #eee;
+  padding: 3px 5px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  pointer-events: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕",
+    helvetica, "Apple SD Gothic Neo", sans-serif;
+}
+
+.language[data-format="text"] {
+  display: none;
+}
+
+.language[data-format="text"] {
+  display: none;
+}
+
+.language[data-format="typescript"],
+.language[data-format="tsx"],
+.language[data-format="ts"] {
+  background-color: #007accbf;
+}
+
+.language[data-format="javascript"],
+.language[data-format="js"],
+.language[data-format="json"] {
+  background-color: #f0db4fbf;
+}
+
+.language[data-format="css"] {
+  background-color: #3c99dcbf;
+}
+
+.language[data-format="scss"] {
+  background-color: #cc6699bf;
+}
+
+/* blockquote */
+.blockquote {
+  position: relative;
+  padding: 0 14px;
+  margin: 0px;
+  margin-top: 1.4em;
+}
+
+.blockquote::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  width: 3px;
+  background-color: #37352f;
+}
+
+/* anchor */
+.anchor {
+  position: relative;
+  color: #999;
+}
+
+/* paragraph */
+.paragraph {
+  line-height: 1.25;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+/* inline code */
+.inline_code {
+  font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕",
+    helvetica, "Apple SD Gothic Neo", sans-serif;
+  padding: 1px 4px;
+  border-radius: 5px;
+  background-color: #eee;
+  color: #ce9178;
+}
+
+.hr {
+  border: 1px solid #eee;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  //   color: #eee;
+}
+
+.ul {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  list-style: initial;
+  padding-inline-start: 20px;
+}
+
+.ul .ul {
+  list-style: circle;
+}
+
+.ol {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  padding-inline-start: 20px;
+}
+
+.ol .ol {
+  list-style: lower-alpha;
+}

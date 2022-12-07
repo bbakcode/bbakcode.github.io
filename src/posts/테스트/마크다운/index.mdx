@@ -1,0 +1,120 @@
+---
+title: 포스트1
+date: "2022-11-13"
+tags: [태그]
+assets:
+  - ./assets/42-1400x560.jpeg
+---
+
+# 테스트
+
+## a
+
+[MDX](https://mdxjs.com "title")
+
+## blockquote
+
+> A greater than…
+
+## br
+
+A backslash\
+before a line break…
+
+## code
+
+Some `backticks` for inline.
+
+```tsx
+import { Image } from "@components/image";
+import { MDXProvider } from "@mdx-js/react";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import React from "react";
+import * as styles from "./Post.module.scss";
+import components from "./component";
+//import classNames from "classnames/bind";
+
+interface PostProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "id">,
+    PostItem {}
+
+//let cx = classNames.bind(styles);
+const Post: React.FC<PostProps> = (props) => {
+  const { frontmatter, body, tableOfContents } = props;
+
+  const thumbnail = frontmatter.assets?.[0].childImageSharp;
+
+  console.log(tableOfContents);
+
+  return (
+    <div className={styles.root}>
+      <div className={styles.post}>
+        <Image image={thumbnail} />
+        <MDXProvider components={components}>
+          <MDXRenderer>{body}</MDXRenderer>
+        </MDXProvider>
+      </div>
+      <div className={styles.post_nav}>
+        <div className={styles.nav}>
+          {tableOfContents.items.map((x, xIndex) => (
+            <ul key={`${x.title}_${xIndex}`}>
+              <div>{x.title}</div>
+              {x.items.map((y, yIndex) => (
+                <ul key={`${y.title}_${yIndex}`}>
+                  <div>{y.title}</div>
+                </ul>
+              ))}
+            </ul>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Post;
+```
+
+## em
+
+Some _asterisks_ for emphasis.
+
+## header
+
+# One number sign…
+
+## Two number signs…
+
+### Three number signs…
+
+#### Four number signs…
+
+##### Five number signs…
+
+###### Six number signs…
+
+## hr
+
+Three asterisks for a thematic break:
+
+---
+
+## img
+
+![Alt text](https://picsum.photos/200/200 "title")
+
+## ul ol
+
+- asterisks for unordered items
+  - aaaa
+
+1. decimals and a dot for ordered items
+   1. a
+
+## Just some text…
+
+Just some text…
+
+## string
+
+Two **asterisks** for strong.
