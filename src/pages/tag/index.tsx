@@ -15,7 +15,7 @@ interface TagPageProps extends Omit<PageProps, "data"> {
 const TagPage: React.FC<TagPageProps> = (props) => {
   const { data } = props;
   return (
-    <Page nav={[{ name: "🏷  태그", path: "/tag" }]}>
+    <Page nav={[{ name: "🏷  태그", path: "/tag" }]} margin>
       <TagList tags={data.allMdx.tags} />
     </Page>
   );

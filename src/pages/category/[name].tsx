@@ -30,7 +30,7 @@ const CateogryPage: React.FC<CateogryPageProps> = (props) => {
 };
 
 export const categoryPageQuery = graphql`
-  query categoryPageQueryForName($name: String = "") {
+  query categoryPageQuery($name: String = "") {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { fields: { category: { eq: $name } } }
