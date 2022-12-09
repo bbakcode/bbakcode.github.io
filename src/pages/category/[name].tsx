@@ -42,7 +42,7 @@ export const categoryPageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           assets {
             childImageSharp {
-              gatsbyImageData(aspectRatio: 1.5) #3/2
+              gatsbyImageData
             }
           }
         }

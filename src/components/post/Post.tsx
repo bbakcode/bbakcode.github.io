@@ -1,7 +1,7 @@
 import { Image } from "@components/image";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import React, { Fragment } from "react";
+import React, { Fragment, useCallback } from "react";
 import * as styles from "./Post.module.scss";
 import components from "./component";
 //import classNames from "classnames/bind";
@@ -18,10 +18,12 @@ const Post: React.FC<PostProps> = (props) => {
 
   return (
     <div className={styles.root}>
-      <div className={styles.header}>
-        <div className={styles.title}>{frontmatter.title}</div>
-        <Image className={styles.thumbnail} image={thumbnail} />
-      </div>
+      {thumbnail && (
+        <div className={styles.header}>
+          <div className={styles.title}>{frontmatter.title}</div>
+          <Image className={styles.thumbnail} image={thumbnail} />
+        </div>
+      )}
       <div className={styles.main}>
         <article className={styles.article}>
           <MDXProvider components={components}>

@@ -31,6 +31,7 @@ export const homePageQuery = graphql`
       posts: nodes {
         excerpt(pruneLength: 140)
         frontmatter {
+          tags
           title
           date(formatString: "MMMM DD, YYYY")
           assets {

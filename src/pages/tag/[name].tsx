@@ -22,7 +22,6 @@ const TagPage: React.FC<TagPageProps> = (props) => {
         { name: "🏷  태그", path: `/tag` },
         { name: pageContext.name, path: `/tag/${pageContext.name}/` },
       ]}
-      margin
     >
       {data.allMdx?.posts?.map((post) => (
         <div key={post.id}>

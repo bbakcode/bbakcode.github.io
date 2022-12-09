@@ -1,17 +1,53 @@
-.post {
-  padding: 12px 16px;
-  box-shadow: var(--box-shadow);
-  margin-bottom: 12px;
+.root {
+  margin-left: -12px;
   display: flex;
-  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.left {
-  align-self: center;
-  // width: 35%;
+.root > div {
+  padding-left: 12px;
+  margin-bottom: 20px;
   width: 100%;
-  min-width: 150px;
-  max-width: 200px;
+}
+
+.link::before {
+  background-color: transparent;
+}
+
+.post {
+  position: relative;
+  padding: 12px 16px;
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
+}
+
+.post img {
+  transition: transform 0.25s linear, opacity 0.25s linear !important;
+}
+
+.post:hover img {
+  transform: scale(1.05);
+}
+
+.post:hover .title {
+  text-decoration: underline;
+}
+
+.post::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #364554;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.post:hover::before {
+  opacity: 0.04;
+}
+
+.post:active::before {
+  opacity: 0.16;
 }
 
 .image_wrapper {
@@ -21,14 +57,12 @@
   background-color: #ccc;
   border-radius: 8px;
   overflow: hidden;
-}
-
-.right {
-  flex: 1;
+  z-index: 0;
 }
 
 .title {
-  font-size: 20 px;
+  margin-top: 12px;
+  font-size: 20px;
   font-weight: 700;
 }
 
@@ -37,13 +71,30 @@
   font-size: 14px;
 }
 
-@media screen and (max-width: 426px) {
-  .post {
-    flex-direction: column;
+.tag_list {
+  margin-top: 12px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 5px;
+  border-radius: 5px;
+  background-color: #808a94;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* 테블릿 */
+@media (min-width: 426px) and (max-width: 1024px) {
+  .root > div {
+    width: 50%;
   }
-  .left {
-    width: 100%;
-    min-width: unset;
-    max-width: 100%;
+}
+
+/* 피씨 */
+@media (min-width: 1025px) {
+  .root > div {
+    width: 33.3%;
   }
 }

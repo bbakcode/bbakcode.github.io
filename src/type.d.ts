@@ -40,7 +40,7 @@ interface Fields {
 
 interface Frontmatter {
   title: string;
-  tags: null;
+  tags: string[] | null;
   assets: AssetItem[] | null;
 }
 

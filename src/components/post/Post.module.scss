@@ -1,10 +1,17 @@
 .root {
+  margin: 0 -12px;
   // box-shadow: var(--box-shadow);
   // overflow: -moz-hidden-unscrollable;
 }
 
 .header {
   position: relative;
+  width: 100%;
+  margin-top: -25px;
+  // margin-left: -12px;
+  // margin-right: -12px;
+  padding-top: 30%;
+  overflow: hidden;
 }
 
 .main {
@@ -14,22 +21,28 @@
 .article {
   max-width: 824px;
   margin: 0 auto;
-  width: 100%;
   padding: 0 12px;
+  width: 100%;
 }
+
 .title {
   position: absolute;
   bottom: 0;
   padding-left: 5%;
   padding-bottom: 5%;
-  font-size: 2em;
+  font-size: 1.825em;
   font-weight: 600;
   color: #eee;
   z-index: 5;
 }
 
 .thumbnail {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
 }
 
 .thumbnail::after {

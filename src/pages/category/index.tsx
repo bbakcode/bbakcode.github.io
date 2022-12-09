@@ -14,7 +14,7 @@ interface CategoryPageProps extends Omit<PageProps, "data"> {
 const CategoryPage: React.FC<CategoryPageProps> = (props) => {
   const { data } = props;
   return (
-    <Page nav={[{ name: "🗂  카테고리", path: "/category" }]} margin>
+    <Page nav={[{ name: "🗂  카테고리", path: "/category" }]}>
       <CategoryList categories={data.allMdx.categories} />
     </Page>
   );
