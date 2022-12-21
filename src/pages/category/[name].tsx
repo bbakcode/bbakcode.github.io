@@ -36,9 +36,10 @@ export const categoryPageQuery = graphql`
       filter: { fields: { category: { eq: $name } } }
     ) {
       posts: nodes {
-        excerpt(pruneLength: 140)
+        excerpt(pruneLength: 100, truncate: true)
         frontmatter {
           title
+          tags
           date(formatString: "MMMM DD, YYYY")
           assets {
             childImageSharp {

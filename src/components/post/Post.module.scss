@@ -7,9 +7,6 @@
 .header {
   position: relative;
   width: 100%;
-  margin-top: -25px;
-  // margin-left: -12px;
-  // margin-right: -12px;
   padding-top: 30%;
   overflow: hidden;
 }
@@ -26,13 +23,15 @@
 }
 
 .title {
-  position: absolute;
-  bottom: 0;
-  padding-left: 5%;
-  padding-bottom: 5%;
-  font-size: 1.825em;
+  margin-top: 1em;
+  margin-bottom: 1px;
+  // position: absolute;
+  // bottom: 0;
+  // padding-left: 5%;
+  // padding-bottom: 5%;
+  font-size: 1.5em;
   font-weight: 600;
-  color: #eee;
+  // color: #eee;
   z-index: 5;
 }
 
@@ -75,6 +74,7 @@
   color: #777;
   display: block;
   padding: 4px 0px;
+  cursor: pointer;
 }
 
 .list a:hover {

@@ -21,7 +21,7 @@ exports.onCreateWebpackConfig = ({ actions }: CreateWebpackConfigArgs) => {
 exports.createPages = async ({ graphql, actions }: CreatePagesArgs) => {
   const { createPage } = actions;
 
-  const PostComponent = path.resolve("./src/pages/post.tsx");
+  const PostComponent = path.resolve("./src/pages/post/index.tsx");
   const TagComponent = path.resolve("./src/pages/tag/[name].tsx");
   const CategoryComponent = path.resolve("./src/pages/category/[name].tsx");
 

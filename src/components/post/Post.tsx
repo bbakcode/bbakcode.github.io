@@ -20,12 +20,12 @@ const Post: React.FC<PostProps> = (props) => {
     <div className={styles.root}>
       {thumbnail && (
         <div className={styles.header}>
-          <div className={styles.title}>{frontmatter.title}</div>
           <Image className={styles.thumbnail} image={thumbnail} />
         </div>
       )}
       <div className={styles.main}>
         <article className={styles.article}>
+          <div className={styles.title}>{frontmatter.title}</div>
           <MDXProvider components={components}>
             <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>

@@ -29,7 +29,7 @@ export const homePageQuery = graphql`
   query homePageQuery {
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       posts: nodes {
-        excerpt(pruneLength: 140)
+        excerpt(pruneLength: 100, truncate: true)
         frontmatter {
           tags
           title

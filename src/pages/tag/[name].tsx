@@ -1,3 +1,4 @@
+import { PostList } from "@components/list";
 import { Page } from "@components/page";
 import { graphql, Link, PageProps } from "gatsby";
 import React from "react";
@@ -23,11 +24,7 @@ const TagPage: React.FC<TagPageProps> = (props) => {
         { name: pageContext.name, path: `/tag/${pageContext.name}/` },
       ]}
     >
-      {data.allMdx?.posts?.map((post) => (
-        <div key={post.id}>
-          <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
-        </div>
-      ))}
+      <PostList posts={data.allMdx?.posts} />
     </Page>
   );
 };
@@ -39,8 +36,9 @@ export const tagPageQuery = graphql`
       filter: { frontmatter: { tags: { in: $name } } }
     ) {
       posts: nodes {
-        excerpt(pruneLength: 140)
+        excerpt(pruneLength: 100, truncate: true)
         frontmatter {
+          tags
           title
           date(formatString: "MMMM DD, YYYY")
           assets {
