@@ -41,6 +41,8 @@ const SearchPage: React.FC<SearchPageProps> = (props) => {
     const { tags, title } = post.frontmatter;
     const summary = post.frontmatter.summary;
 
+    if (!query) return false;
+
     return (
       title.toLocaleLowerCase().includes(query.toLocaleLowerCase()) ||
       summary.toLocaleLowerCase().includes(query.toLocaleLowerCase()) ||
