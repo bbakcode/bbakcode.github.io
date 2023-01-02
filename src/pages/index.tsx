@@ -15,9 +15,11 @@ const HomePage: React.FC<HomePageProps> = (props) => {
   const { data } = props;
 
   return (
-    <Page nav={[{ name: "🏠  홈", path: "/" }]}>
-      <PostList posts={data.allMdx?.posts} />
-    </Page>
+    <>
+      <Page nav={[{ name: "🏠  홈", path: "/" }]}>
+        <PostList posts={data.allMdx?.posts} />
+      </Page>
+    </>
   );
 };
 
@@ -29,10 +31,10 @@ export const homePageQuery = graphql`
   query homePageQuery {
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       posts: nodes {
-        excerpt(pruneLength: 100, truncate: true)
         frontmatter {
           tags
           title
+          summary
           date(formatString: "MMMM DD, YYYY")
           assets {
             childImageSharp {

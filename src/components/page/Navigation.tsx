@@ -1,18 +1,18 @@
+import { Link } from "@components/link";
 import React from "react";
 import * as styles from "./Navigation.module.scss";
-import classNames from "classnames/bind";
-import { Link } from "@components/link";
+//import classNames from "classnames/bind";
 
-interface NavigationProps
+export interface NavigationProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, ""> {
   nav?: NavItem[];
 }
 
-let cx = classNames.bind(styles);
+//let cx = classNames.bind(styles);
 const Navigation: React.FC<NavigationProps> = (props) => {
-  const { nav, className } = props;
+  const { nav } = props;
   return (
-    <nav className={cx(styles.root, className)}>
+    <nav className={styles.root}>
       <div className={styles.container}>
         {nav?.map(({ name, path }) => (
           <Link key={path} className={styles.link} to={path}>

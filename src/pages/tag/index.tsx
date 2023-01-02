@@ -1,4 +1,3 @@
-import { Link } from "@components/link";
 import { TagList } from "@components/list";
 import { Page } from "@components/page";
 import { graphql, PageProps } from "gatsby";

@@ -36,10 +36,10 @@ export const tagPageQuery = graphql`
       filter: { frontmatter: { tags: { in: $name } } }
     ) {
       posts: nodes {
-        excerpt(pruneLength: 100, truncate: true)
         frontmatter {
           tags
           title
+          summary
           date(formatString: "MMMM DD, YYYY")
           assets {
             childImageSharp {

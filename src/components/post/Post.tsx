@@ -17,15 +17,15 @@ const Post: React.FC<PostProps> = (props) => {
   const thumbnail = frontmatter.assets?.[0].childImageSharp;
 
   return (
-    <div className={styles.root}>
+    <>
       {thumbnail && (
-        <div className={styles.header}>
+        <div className={styles.cover}>
+          <div className={styles.ratio}></div>
           <Image className={styles.thumbnail} image={thumbnail} />
         </div>
       )}
-      <div className={styles.main}>
+      <div className={styles.content}>
         <article className={styles.article}>
-          <div className={styles.title}>{frontmatter.title}</div>
           <MDXProvider components={components}>
             <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
@@ -49,7 +49,7 @@ const Post: React.FC<PostProps> = (props) => {
           </ul>
         </aside>
       </div>
-    </div>
+    </>
   );
 };
 

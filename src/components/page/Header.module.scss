@@ -1,125 +1,54 @@
 .root {
-  // box-shadow: var(--box-shadow);
-  background-color: #fff;
+  height: 50px;
 }
 
 .container {
   display: flex;
   align-items: center;
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 0px 12px;
-  height: 50px;
+  height: 100%;
+  padding: 0 12px;
+  max-width: var(--page-width);
+  margin-inline: auto;
 }
 
 .logo {
-  color: var(--font-color);
+  display: inline-flex;
+  align-items: center;
+}
+
+.title {
+  margin-left: 8px;
   font-size: 16px;
   font-weight: 700;
-  line-height: 40px;
+  white-space: pre;
 }
 
-.search {
+.action {
+  display: inline-flex;
   margin-left: auto;
-  margin-right: 7px;
+}
+
+.wrapper {
   position: relative;
-  color: #ccc;
+  display: inline-flex;
+  align-items: center;
 }
 
-// .search_icon {
-//   position: absolute;
-//   right: 5px;
-//   top: 0;
-//   bottom: 0;
-//   height: 30px;
-//   // height: 30px;
-//   // width: 30px;
-//   font-size: 20px;
-// }
-
-.search_input {
-  width: 0px;
-  height: 30px;
-  margin-right: -30px;
-  font-size: 14px;
-  outline: unset;
-  padding: 0 40px 0 15px;
-  color: #333;
-  border: 0px;
-  border-bottom: 2px solid #ccc;
-  animation: expand 0.4s ease-in forwards;
-  overflow: hidden;
-}
-
-@keyframes expand {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 140px;
-  }
-}
-
-.search_input {
-  margin-left: auto;
-}
-
-.search_input + .search_button {
-  margin-left: unset;
-}
-
-.search_button {
-  margin-left: auto;
-}
-
-.menu_button,
-.search_button {
+.button {
   display: block;
   width: 40px;
   height: 40px;
   font-size: 20px;
-  padding: 0px;
-  color: #000;
 }
+
+/* input */
 
 .menu {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  right: 12px; // container padding-right*2
-  // top: 48px; // container padding-top, menu_button height
-  box-shadow: var(--box-shadow);
+  top: 45px;
+  right: 0px;
   border-radius: 10px;
-  padding: 8px 12px;
-  background-color: #fff;
-  white-space: pre;
-  z-index: 100;
-}
-
-.menu_wrapper {
-  position: relative;
-  inset: 0;
-  margin: 0 auto;
-  max-width: 1200px;
-  z-index: 100;
-}
-
-.menu_item {
-  display: flex;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 8px 12px;
-  cursor: pointer;
-}
-
-@media screen and (max-width: 426px) {
-  .menu_wrapper {
-    position: fixed;
-    top: 50px;
-  }
-  .menu {
-    inset: 0;
-    border-radius: 0px;
-  }
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-surface);
+  z-index: 50;
 }

@@ -1,0 +1,23 @@
+.root {
+  padding: 8px 12px;
+  list-style: none;
+}
+
+.item {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: pre;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 426px) {
+  .root {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 50px;
+    border-radius: 0px;
+  }
+}

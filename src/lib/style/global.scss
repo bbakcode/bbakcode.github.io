@@ -5,6 +5,7 @@
 body {
   margin: 0;
   padding: 0;
+  font-size: 12px;
   font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕",
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   -webkit-text-size-adjust: none;
@@ -34,9 +35,38 @@ button {
 }
 
 :root {
-  --font-color: #000;
-  --font-color-link: #666;
-  --border-color: #eee;
+  --page-width: 1200px;
+
+  --color-surface: #fff;
+  --color-surface-intverted: #000;
+
+  --color-accent: #6667ab;
+  --color-accent-deep: #523f90;
+
+  --color-text-primary: #000;
+  --color-text-secondary: #333;
+  --color-text-inverted: #fff;
+  --color-text-link: #666;
+
+  // --active-text-primary: #000;
+  // --active-text-secondary: #333;
+  // --active-text-inverted: #fff;
+  --active-text-link: #000;
+
+  // --inactive-text-primary: #000;
+  // --inactive-text-secondary: #333;
+  // --inactive-text-inverted: #fff;
+  --inactive-text-link: #666;
+
+  --color-text-success: rgb(96, 241, 96);
+  --color-text-warn: rgb(255, 149, 0);
+  --color-text-error: rgb(255, 91, 91);
+
   --box-shadow: rgb(63 70 125 / 20%) 0px 1px 3px 0px,
     rgb(101 94 115 / 10%) 2px 4px 8px 1px;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
 }

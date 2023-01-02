@@ -2,20 +2,26 @@
   position: sticky;
   top: 0;
   box-shadow: var(--box-shadow);
-  background-color: #ffffff80;
+  height: 40px;
   backdrop-filter: blur(4px);
   z-index: 10;
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-surface);
+  opacity: 0.7;
 }
 
 .container {
   display: flex;
   align-items: center;
-  white-space: nowrap;
-  overflow: auto;
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 0px 12px;
-  height: 42px;
+  height: 100%;
+  padding: 0 12px;
+  max-width: var(--page-width);
+  margin-inline: auto;
 }
 
 .container::-webkit-scrollbar {

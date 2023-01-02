@@ -30,6 +30,7 @@ export const postPageQuery = graphql`
       tableOfContents(maxDepth: 2)
       frontmatter {
         title
+        summary
         tags
         assets {
           childImageSharp {

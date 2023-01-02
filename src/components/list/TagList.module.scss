@@ -1,7 +1,9 @@
 .root {
   box-shadow: var(--box-shadow);
-  margin-top: 24px;
   border-radius: 7px;
+  max-width: calc(var(--page-width) / 2);
+  margin-top: 24px;
+  margin-inline: auto;
 }
 
 .header {

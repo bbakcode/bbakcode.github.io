@@ -16,7 +16,7 @@ interface CateogryPageProps extends Omit<PageProps, "data" | "pageContext"> {
 //let cx = classNames.bind(styles);
 const CateogryPage: React.FC<CateogryPageProps> = (props) => {
   const { data, pageContext } = props;
-
+  console.log(data);
   return (
     <Page
       nav={[
@@ -36,9 +36,9 @@ export const categoryPageQuery = graphql`
       filter: { fields: { category: { eq: $name } } }
     ) {
       posts: nodes {
-        excerpt(pruneLength: 100, truncate: true)
         frontmatter {
           title
+          summary
           tags
           date(formatString: "MMMM DD, YYYY")
           assets {

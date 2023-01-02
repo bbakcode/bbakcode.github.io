@@ -18,21 +18,17 @@ const PostList: React.FC<PostListProps> = (props) => {
         <div key={post.id}>
           <div className={styles.post}>
             <Link to={post.fields.slug} className={styles.link}>
-              <div className={styles.image_wrapper}>
+              <div className={styles.cover}>
+                <div className={styles.ratio}></div>
                 {post.frontmatter.assets && (
                   <Image
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      height: "100%",
-                    }}
+                    className={styles.thumbnail}
                     image={post.frontmatter.assets[0].childImageSharp}
                   />
                 )}
               </div>
               <div className={styles.title}>{post.frontmatter.title}</div>
-              <div className={styles.excerpt}>{post.excerpt}</div>
+              <div className={styles.summary}>{post.frontmatter.summary}</div>
             </Link>
             <div className={styles.tag_list}>
               {post.frontmatter.tags?.map((tag) => {

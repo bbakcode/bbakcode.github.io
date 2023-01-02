@@ -16,15 +16,17 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-color: #364554;
+  background-color: var(--color-text-link);
   pointer-events: none;
   opacity: 0;
 }
 
-.root:hover::before {
-  opacity: 0.04;
+@media (hover: hover) and (pointer: fine) {
+  .root:hover::before {
+    opacity: 0.06;
+  }
 }
 
 .root:active::before {
-  opacity: 0.16;
+  opacity: 0.1;
 }

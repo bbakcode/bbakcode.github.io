@@ -1,39 +1,21 @@
 import React from "react";
 import Header from "./Header";
-import Navigation from "./Navigtaion";
-import * as styles from "./Page.module.scss";
+import Navigation, { NavigationProps } from "./Navigation";
+//import classNames from "classnames/bind";
 
-interface PageProps extends Omit<React.HTMLAttributes<HTMLDivElement>, ""> {
-  nav?: NavItem[];
-}
+interface PageProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "">,
+    NavigationProps {}
 
-const menu = [
-  {
-    to: "/",
-    name: "🏠  홈",
-  },
-  {
-    to: "/category",
-    name: "🗂  카테고리",
-  },
-  {
-    to: "/tag",
-    name: "🏷  태그",
-  },
-  {
-    to: "/about",
-    name: "👨‍💻  빡코드",
-  },
-];
-
+//let cx = classNames.bind(styles);
 const Page: React.FC<PageProps> = (props) => {
-  const { nav, children } = props;
+  const { children, nav } = props;
 
   return (
     <>
-      <Header menu={menu} />
+      <Header />
       <Navigation nav={nav} />
-      <main className={styles.main}>{children}</main>
+      <main>{children}</main>
     </>
   );
 };

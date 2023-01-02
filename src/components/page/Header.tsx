@@ -1,77 +1,82 @@
+import { Button } from "@components/button";
+import { navigate } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 import React, { useState } from "react";
 import { MdOutlineMenu, MdOutlineSearch } from "react-icons/md";
 import * as styles from "./Header.module.scss";
-import classNames from "classnames/bind";
-import { Button } from "@components/button";
-import { Link } from "@components/link";
-import { navigate } from "gatsby";
+import Menu from "./Menu";
+import Search from "./Search";
+//import classNames from "classnames/bind";
 
-interface HeaderProps extends Omit<React.HTMLAttributes<HTMLHeadElement>, ""> {
-  menu: { to: string; name: string }[];
-}
+interface HeaderProps extends Omit<React.HTMLAttributes<HTMLHeadElement>, ""> {}
 
-let cx = classNames.bind(styles);
+const menuList = [
+  {
+    to: "/",
+    name: "🏠  홈",
+  },
+  {
+    to: "/category",
+    name: "🗂  카테고리",
+  },
+  {
+    to: "/tag",
+    name: "🏷  태그",
+  },
+  {
+    to: "/about",
+    name: "👨‍💻  빡코드",
+  },
+];
+
+//let cx = classNames.bind(styles);
 const Header: React.FC<HeaderProps> = (props) => {
-  const { menu, className } = props;
-  const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
   const [isOpenSearch, setIsOpenSearch] = useState<boolean>(false);
+  const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
 
-  const onClickMenu = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setIsOpenMenu((prev) => !prev);
-  };
-
-  const onClickSearch = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handleToggleSearch = () => {
     setIsOpenSearch((prev) => !prev);
   };
 
-  const onBlur = () => {
-    setIsOpenSearch(false);
+  const onClickMenu = () => {
+    setIsOpenMenu((prev) => !prev);
   };
 
-  const onKeyDown = (e: React.KeyboardEvent) => {
-    const target = e.target as HTMLInputElement;
-    if (e.key === "Enter" && target.value !== "") {
-      navigate(`/search/${target.value}/`);
-    }
+  /*  */
+  const onSearch = (keyword: string) => {
+    navigate(`/search/${keyword}/`);
   };
-
-  const menuItemList = menu.map((item) => (
-    <li key={item.to}>
-      <Link to={item.to} className={styles.menu_item}>
-        {item.name}
-      </Link>
-    </li>
-  ));
 
   return (
-    <header className={cx(styles.root, className)}>
+    <header className={styles.root}>
       <div className={styles.container}>
-        <div className={styles.logo}>빡코드</div>
-        {isOpenSearch && (
-          <input
-            autoFocus
-            onBlur={onBlur}
-            className={styles.search_input}
-            onKeyDown={onKeyDown}
-            autoComplete="false"
-            autoCorrect="false"
-            spellCheck="false"
+        <div className={styles.logo}>
+          <StaticImage
+            width={38}
+            height={38}
+            src="https://picsum.photos/38/38"
+            alt="logo"
           />
-        )}
-        <Button className={styles.search_button} onClick={onClickSearch}>
-          <MdOutlineSearch />
-        </Button>
-        <Button className={styles.menu_button} onClick={onClickMenu}>
-          <MdOutlineMenu />
-        </Button>
-      </div>
-      {isOpenMenu && (
-        <div className={styles.menu_wrapper}>
-          <ul className={styles.menu}>{menuItemList}</ul>
+          <span className={styles.title}>빡코드</span>
         </div>
-      )}
+        <div className={styles.action}>
+          <div className={styles.wrapper}>
+            {isOpenSearch ? (
+              <Search onBlur={handleToggleSearch} onSearch={onSearch} />
+            ) : (
+              <Button className={styles.button} onClick={handleToggleSearch}>
+                <MdOutlineSearch />
+              </Button>
+            )}
+          </div>
+          <div className={styles.wrapper}>
+            {isOpenMenu && <Menu className={styles.menu} menuList={menuList} />}
+            <Button className={styles.button} onClick={onClickMenu}>
+              <MdOutlineMenu />
+            </Button>
+          </div>
+        </div>
+      </div>
     </header>
   );
 };

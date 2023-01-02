@@ -2,28 +2,30 @@
   position: relative;
   display: block;
   text-decoration: none;
-  color: var(--font-color-link);
+  color: var(--color-text-link);
   border-radius: 10px;
   overflow: hidden;
 }
 
 .active {
-  color: #000000;
+  color: var(--active-text-link);
 }
 
 .root::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: #364554;
+  background-color: var(--color-text-link);
   pointer-events: none;
   opacity: 0;
 }
 
-.root:hover::before {
-  opacity: 0.04;
+@media (hover: hover) and (pointer: fine) {
+  .root:hover::before {
+    opacity: 0.06;
+  }
 }
 
 .root:active::before {
-  opacity: 0.16;
+  opacity: 0.1;
 }

@@ -23,7 +23,6 @@ interface TagItem {
 interface PostItem {
   id: string;
   body: string;
-  excerpt: string;
   frontmatter: Frontmatter;
   tableOfContents: TableOfContents;
   fields: Fields;
@@ -40,6 +39,7 @@ interface Fields {
 
 interface Frontmatter {
   title: string;
+  summary: string;
   tags: string[] | null;
   assets: AssetItem[] | null;
 }

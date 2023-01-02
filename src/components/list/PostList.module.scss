@@ -1,12 +1,14 @@
 .root {
-  margin-top: 24px;
-  margin-left: -24px;
   display: flex;
   flex-wrap: wrap;
+  margin-left: -12px;
+  max-width: var(--page-width);
+  margin-top: 24px;
+  margin-inline: auto;
 }
 
 .root > div {
-  padding-left: 24px;
+  padding-left: 12px;
   margin-bottom: 20px;
   width: 100%;
 }
@@ -52,14 +54,25 @@
   opacity: 0.16;
 }
 
-.image_wrapper {
+.cover {
   position: relative;
-  width: 100%;
-  padding-top: 66.66%;
   background-color: #ccc;
   border-radius: 8px;
   overflow: hidden;
-  z-index: 0;
+}
+
+.ratio {
+  position: relative;
+  width: 100%;
+  padding-top: 45%;
+}
+
+.thumbnail {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .title {
@@ -71,14 +84,15 @@
   overflow: hidden;
 }
 
-.excerpt {
-  margin-top: 12px;
+.summary {
+  margin-top: 24px;
   font-size: 14px;
-  height: 52px;
+  line-height: 1.4;
+  height: 70px;
 }
 
 .tag_list {
-  margin-top: 12px;
+  margin-top: 24px;
 }
 
 .tag {
