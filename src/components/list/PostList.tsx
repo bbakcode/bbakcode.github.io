@@ -14,34 +14,36 @@ const PostList: React.FC<PostListProps> = (props) => {
 
   return (
     <div className={styles.root}>
-      {posts.map((post) => (
-        <div key={post.id}>
-          <div className={styles.post}>
-            <Link to={post.fields.slug} className={styles.link}>
-              <div className={styles.cover}>
-                <div className={styles.ratio}></div>
-                {post.frontmatter.assets && (
-                  <Image
-                    className={styles.thumbnail}
-                    image={post.frontmatter.assets[0].childImageSharp}
-                  />
-                )}
+      <div className={styles.list}>
+        {posts.map((post) => (
+          <div key={post.id}>
+            <div className={styles.post}>
+              <Link to={post.fields.slug} className={styles.link}>
+                <div className={styles.cover}>
+                  <div className={styles.ratio}></div>
+                  {post.frontmatter.assets && (
+                    <Image
+                      className={styles.thumbnail}
+                      image={post.frontmatter.assets[0].childImageSharp}
+                    />
+                  )}
+                </div>
+                <div className={styles.title}>{post.frontmatter.title}</div>
+                <div className={styles.summary}>{post.frontmatter.summary}</div>
+              </Link>
+              <div className={styles.tag_list}>
+                {post.frontmatter.tags?.map((tag) => {
+                  return (
+                    <Link key={tag} to={`/tag/${tag}`} className={styles.tag}>
+                      {tag}
+                    </Link>
+                  );
+                })}
               </div>
-              <div className={styles.title}>{post.frontmatter.title}</div>
-              <div className={styles.summary}>{post.frontmatter.summary}</div>
-            </Link>
-            <div className={styles.tag_list}>
-              {post.frontmatter.tags?.map((tag) => {
-                return (
-                  <Link key={tag} to={`/tag/${tag}`} className={styles.tag}>
-                    {tag}
-                  </Link>
-                );
-              })}
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

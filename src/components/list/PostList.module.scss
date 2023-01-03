@@ -1,13 +1,16 @@
 .root {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -12px;
   max-width: var(--page-width);
-  margin-top: 24px;
-  margin-inline: auto;
+  margin: 24px auto;
+  padding: 0 12px;
 }
 
-.root > div {
+.list {
+  margin-left: -12px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list > div {
   padding-left: 12px;
   margin-bottom: 20px;
   width: 100%;
@@ -58,6 +61,7 @@
   position: relative;
   background-color: #ccc;
   border-radius: 8px;
+  z-index: 0;
   overflow: hidden;
 }
 
@@ -107,14 +111,14 @@
 
 /* 테블릿 */
 @media (min-width: 426px) and (max-width: 1024px) {
-  .root > div {
+  .list > div {
     width: 50%;
   }
 }
 
 /* 피씨 */
 @media (min-width: 1025px) {
-  .root > div {
+  .list > div {
     width: 33.3%;
   }
 }

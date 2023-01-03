@@ -13,17 +13,19 @@ const TagList: React.FC<TagListProps> = (props) => {
 
   return (
     <div className={styles.root}>
-      <div className={styles.header}>🏷 태그</div>
-      <ul className={styles.list}>
-        {tags?.map((tag) => (
-          <li key={tag.name}>
-            <Link to={`/tag/${tag.name}/`} className={styles.tag}>
-              <span>{tag.name}</span>
-              <span className={styles.count}>{tag.count}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <div className={styles.wrapper}>
+        <div className={styles.header}>🏷 태그</div>
+        <ul className={styles.list}>
+          {tags?.map((tag) => (
+            <li key={tag.name}>
+              <Link to={`/tag/${tag.name}/`} className={styles.tag}>
+                <span>{tag.name}</span>
+                <span className={styles.count}>{tag.count}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

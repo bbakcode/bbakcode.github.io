@@ -11,10 +11,7 @@ let cx = classNames.bind(styles);
 const Button: React.FC<ButtonProps> = (props) => {
   const { center, className, ...defaultProps } = props;
   return (
-    <button
-      className={cx(styles.root, { [styles.center]: center }, className)}
-      {...defaultProps}
-    ></button>
+    <button className={cx(styles.root, className)} {...defaultProps}></button>
   );
 };
 

@@ -14,20 +14,22 @@ const CategoryList: React.FC<CategoryListProps> = (props) => {
 
   return (
     <div className={styles.root}>
-      <div className={styles.header}>🗂 카테고리</div>
-      <ul className={styles.list}>
-        {categories?.map((category) => (
-          <li key={category.name}>
-            <Link
-              to={`/category/${category.name}/`}
-              className={styles.category}
-            >
-              <span>{category.name}</span>
-              <span className={styles.count}>{category.count}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <div className={styles.wrapper}>
+        <div className={styles.header}>🗂 카테고리</div>
+        <ul className={styles.list}>
+          {categories?.map((category) => (
+            <li key={category.name}>
+              <Link
+                to={`/category/${category.name}/`}
+                className={styles.category}
+              >
+                <span>{category.name}</span>
+                <span className={styles.count}>{category.count}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
