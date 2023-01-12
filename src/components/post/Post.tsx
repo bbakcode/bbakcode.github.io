@@ -12,43 +12,34 @@ interface PostProps
 
 //let cx = classNames.bind(styles);
 const Post: React.FC<PostProps> = (props) => {
-  const { frontmatter, body, tableOfContents } = props;
-
-  const thumbnail = frontmatter.assets?.[0].childImageSharp;
+  const { body, tableOfContents } = props;
 
   return (
-    <>
-      {thumbnail && (
-        <div className={styles.cover}>
-          <Image className={styles.thumbnail} image={thumbnail} />
-        </div>
-      )}
-      <div className={styles.content}>
-        <article className={styles.article}>
-          <MDXProvider components={components}>
-            <MDXRenderer>{body}</MDXRenderer>
-          </MDXProvider>
-        </article>
-        <aside className={styles.aside}>
-          <ul className={styles.list}>
-            {tableOfContents.items.map((x, xIndex) => (
-              <Fragment key={`${x.title}_${xIndex}`}>
-                <li>
-                  <a href={x.url}>{x.title}</a>
-                </li>
-                <ul>
-                  {x.items?.map((y, yIndex) => (
-                    <li key={`${y.title}_${yIndex}`}>
-                      <a href={y.url}>{y.title}</a>
-                    </li>
-                  ))}
-                </ul>
-              </Fragment>
-            ))}
-          </ul>
-        </aside>
-      </div>
-    </>
+    <div className={styles.root}>
+      <article className={styles.article}>
+        <MDXProvider components={components}>
+          <MDXRenderer>{body}</MDXRenderer>
+        </MDXProvider>
+      </article>
+      <aside className={styles.aside}>
+        <ul className={styles.list}>
+          {tableOfContents.items.map((x, xIndex) => (
+            <Fragment key={`${x.title}_${xIndex}`}>
+              <li>
+                <a href={x.url}>{x.title}</a>
+              </li>
+              <ul>
+                {x.items?.map((y, yIndex) => (
+                  <li key={`${y.title}_${yIndex}`}>
+                    <a href={y.url}>{y.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </Fragment>
+          ))}
+        </ul>
+      </aside>
+    </div>
   );
 };
 
