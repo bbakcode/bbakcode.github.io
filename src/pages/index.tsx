@@ -2,6 +2,7 @@ import * as React from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import { Page } from "@components/page";
 import { PostList } from "@components/list";
+import { Seo } from "@components/seo";
 
 interface HomePageProps extends Omit<PageProps, "data" | "pageContext"> {
   data: {
@@ -25,7 +26,7 @@ const HomePage: React.FC<HomePageProps> = (props) => {
 
 export default HomePage;
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+export const Head: HeadFC = () => <Seo />;
 
 export const homePageQuery = graphql`
   query homePageQuery {

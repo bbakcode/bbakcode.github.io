@@ -2,8 +2,10 @@ import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `bbakcode`,
     author: `@bbakcode`,
+    title: `bbakcode`,
+    description: `프론트엔드 개발자 bbakcode의 개발 블로그입니다.`,
+    image: ``,
     siteUrl: `https://bbakcode.github.io`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.

@@ -91,7 +91,6 @@ exports.onCreateNode = ({ node, actions, getNode }: CreateNodeArgs) => {
   if (node.internal.type === `Mdx`) {
     const filePath = createFilePath({ node, getNode });
     const [category, post_name] = filePath.split("/").filter((val) => val);
-    console.log(category, post_name);
     const frontmatter: any = node.frontmatter;
     createNodeField({
       name: `category`,

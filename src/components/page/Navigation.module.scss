@@ -1,7 +1,7 @@
 .root {
   position: sticky;
   top: 0;
-  box-shadow: var(--box-shadow);
+  // box-shadow: var(--box-shadow);
   height: 40px;
   backdrop-filter: blur(4px);
   z-index: 10;
@@ -16,12 +16,21 @@
 }
 
 .container {
+  // display: flex;
+  // align-items: center;
+  // height: 100%;
+  // padding: 0 12px;
+  // max-width: var(--page-width);
+  // margin-inline: auto;
+
   display: flex;
   align-items: center;
   height: 100%;
-  padding: 0 12px;
-  max-width: var(--page-width);
+  padding: 0 46px;
+  max-width: calc(var(--page-width) + 80px);
   margin-inline: auto;
+  box-shadow: rgb(105 105 105 / 18%) 0px 6px 10px -6px,
+    rgb(105 105 105 / 18%) 0px -4px 10px -6px;
 }
 
 .container::-webkit-scrollbar {
@@ -38,4 +47,10 @@
   font-weight: 500;
   padding: 4px 8px;
   white-space: pre;
+}
+
+@media screen and (max-width: 1400px) {
+  .container {
+    padding: 0 16px;
+  }
 }

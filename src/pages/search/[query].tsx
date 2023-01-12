@@ -1,6 +1,7 @@
 import { PostList } from "@components/list";
 import { Page } from "@components/page";
-import { graphql, PageProps, useStaticQuery } from "gatsby";
+import { Seo } from "@components/seo";
+import { graphql, HeadFC, PageProps, useStaticQuery } from "gatsby";
 import React from "react";
 // import styles from "./Search.module.scss";
 //import classNames from "classnames/bind";
@@ -61,5 +62,7 @@ const SearchPage: React.FC<SearchPageProps> = (props) => {
     </Page>
   );
 };
+
+export const Head: HeadFC = () => <Seo />;
 
 export default SearchPage;

@@ -1,6 +1,7 @@
 import { PostList } from "@components/list";
 import { Page } from "@components/page";
-import { graphql, Link, PageProps } from "gatsby";
+import { Seo } from "@components/seo";
+import { graphql, HeadFC, Link, PageProps } from "gatsby";
 import React from "react";
 
 interface TagPageProps extends Omit<PageProps, "data" | "pageContext"> {
@@ -28,6 +29,8 @@ const TagPage: React.FC<TagPageProps> = (props) => {
     </Page>
   );
 };
+
+export const Head: HeadFC = () => <Seo />;
 
 export const tagPageQuery = graphql`
   query tagPageQueryForName($name: [String] = "") {

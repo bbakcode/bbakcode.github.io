@@ -1,7 +1,7 @@
 import { Image } from "@components/image";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import React, { Fragment, useCallback } from "react";
+import React, { Fragment, useCallback, useEffect } from "react";
 import * as styles from "./Post.module.scss";
 import components from "./component";
 //import classNames from "classnames/bind";
@@ -20,7 +20,6 @@ const Post: React.FC<PostProps> = (props) => {
     <>
       {thumbnail && (
         <div className={styles.cover}>
-          <div className={styles.ratio}></div>
           <Image className={styles.thumbnail} image={thumbnail} />
         </div>
       )}

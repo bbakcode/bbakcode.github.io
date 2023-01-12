@@ -1,14 +1,8 @@
 .cover {
   position: relative;
-  max-width: calc(var(--page-width) + 100px);
-  margin: 0 auto;
   overflow: hidden;
-}
-
-.ratio {
-  position: relative;
   width: 100%;
-  padding-top: 25%;
+  height: clamp(15vw, 250px, 40vw);
 }
 
 .thumbnail {
@@ -44,10 +38,10 @@
   flex: 1 1 0;
   align-self: baseline;
   position: sticky;
-  top: 54px;
+  top: 60px;
   max-width: 250px;
   // margin-left: 24px;
-  padding: 12px;
+  padding: 0 12px;
 }
 
 .list {
@@ -61,7 +55,7 @@
   text-decoration: none;
   color: #777;
   display: block;
-  padding: 8px 0px;
+  padding: 6px 0px;
   cursor: pointer;
 }
 
@@ -69,12 +63,22 @@
   font-size: 14px;
   text-decoration: none;
   color: #000;
+  border-color: #000;
 }
 
 .list ul {
-  border-left: 1px solid #eee;
-  padding-left: 12px;
+  padding-left: 0px;
   padding-right: 0px;
+}
+
+.list ul a {
+  padding-left: 12px;
+  border-left: 1px solid #eee;
+}
+
+.active {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 @media screen and (max-width: 1024px) {

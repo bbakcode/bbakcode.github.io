@@ -1,6 +1,7 @@
 import { Image } from "@components/image";
 import { Page } from "@components/page";
-import { PageProps } from "gatsby";
+import { Seo } from "@components/seo";
+import { HeadFC, PageProps } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import * as styles from "./about.module.scss";
@@ -118,5 +119,7 @@ const AboutPage: React.FC<AboutPageProps> = (props) => {
     </Page>
   );
 };
+
+export const Head: HeadFC = () => <Seo />;
 
 export default AboutPage;

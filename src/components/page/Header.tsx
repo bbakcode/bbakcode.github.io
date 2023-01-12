@@ -52,9 +52,9 @@ const Header: React.FC<HeaderProps> = (props) => {
       <div className={styles.container}>
         <div className={styles.logo}>
           <StaticImage
-            width={38}
-            height={38}
-            src="https://picsum.photos/38/38"
+            width={30}
+            height={30}
+            src={"../../images/icon.png"}
             alt="logo"
           />
           <span className={styles.title}>빡코드</span>

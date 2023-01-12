@@ -1,7 +1,8 @@
 import { Page } from "@components/page";
-import { graphql, PageProps } from "gatsby";
+import { graphql, HeadFC, PageProps } from "gatsby";
 import React from "react";
 import { CategoryList } from "@components/list";
+import { Seo } from "@components/seo";
 
 interface CategoryPageProps extends Omit<PageProps, "data"> {
   data: {
@@ -30,5 +31,7 @@ export const categoryPageQuery = graphql`
     }
   }
 `;
+
+export const Head: HeadFC = () => <Seo />;
 
 export default CategoryPage;

@@ -1,6 +1,7 @@
 import { PostList } from "@components/list";
 import { Page } from "@components/page";
-import { graphql, Link, PageProps } from "gatsby";
+import { Seo } from "@components/seo";
+import { graphql, HeadFC, Link, PageProps } from "gatsby";
 import React from "react";
 
 interface CateogryPageProps extends Omit<PageProps, "data" | "pageContext"> {
@@ -16,7 +17,6 @@ interface CateogryPageProps extends Omit<PageProps, "data" | "pageContext"> {
 //let cx = classNames.bind(styles);
 const CateogryPage: React.FC<CateogryPageProps> = (props) => {
   const { data, pageContext } = props;
-  console.log(data);
   return (
     <Page
       nav={[
@@ -28,6 +28,8 @@ const CateogryPage: React.FC<CateogryPageProps> = (props) => {
     </Page>
   );
 };
+
+export const Head: HeadFC = () => <Seo />;
 
 export const categoryPageQuery = graphql`
   query categoryPageQuery($name: String = "") {
